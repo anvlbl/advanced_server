@@ -1,0 +1,20 @@
+extends ../layouts/app.pug
+
+block content
+  h3 New Blog Post
+  form(action='/posts' method='post')
+    div
+      label
+        | Title
+        sup *
+      input(name='title' value=form.title)
+      if errors.title
+        p= errors.title
+    div
+      label
+        | Body
+        sup *
+      textarea(rows=10 name='body')= form.body
+      if errors.body
+        p= errors.body
+    input(type='submit' value='Save')
